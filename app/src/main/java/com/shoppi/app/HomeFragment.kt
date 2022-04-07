@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import org.json.JSONObject
 
 class HomeFragment : Fragment() {
 
@@ -30,5 +31,13 @@ class HomeFragment : Fragment() {
         val assetLoader = AssetLoader()
         val homeData = assetLoader.getJsonString(requireContext(), "home.json")
 
+        if (!homeData.isNullOrEmpty()) {
+            val jsonObject = JSONObject(homeData)
+            val title = jsonObject.getJSONObject("title")
+            val text = title.getString("text")
+            val iconUrl = title.getString("icon_url")
+            val titleValue = Title(text, iconUrl)
+            titleValue.text
+        }
     }
 }
