@@ -1,4 +1,4 @@
-package com.shoppi.app.ui
+package com.shoppi.app.ui.home
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -10,13 +10,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.shoppi.app.Banner
+import com.shoppi.app.model.Banner
 import com.shoppi.app.GlideApp
 import com.shoppi.app.R
 import java.text.DecimalFormat
 import kotlin.math.roundToInt
 
-class HomeBannerAdapter : ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHolder>(BannerDiffCallback()) {
+class HomeBannerAdapter : ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHolder>(
+    BannerDiffCallback()
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBannerViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_banner, parent, false)
