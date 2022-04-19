@@ -12,7 +12,7 @@ import com.shoppi.app.repository.home.HomeRepository
 import com.shoppi.app.ui.category.CategoryViewModel
 import com.shoppi.app.ui.home.HomeViewModel
 
-class ViewModelFactory(private val context: Context) :ViewModelProvider.Factory {
+class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         //제네릭 타입으로 전달받은 인자의 타입이 HomeViewModel인지 체크
         return when {
