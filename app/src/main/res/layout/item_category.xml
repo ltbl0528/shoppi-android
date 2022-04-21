@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="com.shoppi.app.ui.category.CategoryViewModel" />
+
+        <variable
             name="category"
             type="com.shoppi.app.model.Category" />
     </data>
@@ -16,7 +20,8 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/background_bluegrey_r20">
+        android:background="@drawable/background_bluegrey_r20"
+        android:onClick="@{() -> viewModel.openCategoryDetail(category)}">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_category_thumbnail"

@@ -1,21 +1,12 @@
 package com.shoppi.app.ui.home
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.shoppi.app.model.Banner
-import com.shoppi.app.GlideApp
-import com.shoppi.app.R
 import com.shoppi.app.databinding.ItemHomeBannerBinding
-import java.text.DecimalFormat
-import kotlin.math.roundToInt
+import com.shoppi.app.model.Banner
 
 class HomeBannerAdapter : ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHolder>(
     BannerDiffCallback()

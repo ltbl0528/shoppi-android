@@ -10,13 +10,21 @@ import kotlinx.coroutines.launch
 
 class CategoryViewModel(
     private val categoryRepository: CategoryRepository
-): ViewModel() {
+) : ViewModel() {
 
     private val _items = MutableLiveData<List<Category>>()
     val items: LiveData<List<Category>> = _items
 
+    private val _openCategoryEvent = MutableLiveData<Category>()
+    val openCategoryEvent: LiveData<Category> = _openCategoryEvent
+
     init {
         loadCategory()
+    }
+
+    //사용자가 category item을 선택하면 update
+    fun openCategoryDetail(category: Category) {
+        _openCategoryEvent.value = category
     }
 
     private fun loadCategory() {
