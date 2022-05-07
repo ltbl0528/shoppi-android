@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.shoppi.app.model.Category
 import com.shoppi.app.repository.category.CategoryRepository
+import com.shoppi.app.ui.common.Event
 import kotlinx.coroutines.launch
 
 class CategoryViewModel(
@@ -15,8 +16,8 @@ class CategoryViewModel(
     private val _items = MutableLiveData<List<Category>>()
     val items: LiveData<List<Category>> = _items
 
-    private val _openCategoryEvent = MutableLiveData<Category>()
-    val openCategoryEvent: LiveData<Category> = _openCategoryEvent
+    private val _openCategoryEvent = MutableLiveData<Event<Category>>()
+    val openCategoryEvent: LiveData<Event<Category>> = _openCategoryEvent
 
     init {
         loadCategory()
@@ -24,7 +25,7 @@ class CategoryViewModel(
 
     //사용자가 category item을 선택하면 update
     fun openCategoryDetail(category: Category) {
-        _openCategoryEvent.value = category
+        _openCategoryEvent.value = Event(category)
     }
 
     private fun loadCategory() {

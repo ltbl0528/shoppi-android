@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.shoppi.app.common.KEY_CATEGORY_ID
+import com.shoppi.app.common.KEY_CATEGORY_LABEL
 import com.shoppi.app.databinding.FragmentCategoryDetailBinding
 
 class CategoryDetailFragment : Fragment() {
@@ -24,5 +26,10 @@ class CategoryDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.lifecycleOwner = viewLifecycleOwner
+
+        val categoryId = requireArguments().getString(KEY_CATEGORY_ID)
+        val categoryLabel = requireArguments().getString(KEY_CATEGORY_LABEL)
+
+        binding.toolbarCategoryDetail.title = categoryLabel
     }
 }
